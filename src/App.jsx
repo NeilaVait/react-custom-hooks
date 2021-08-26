@@ -20,6 +20,8 @@ function App() {
       }
 
       const data = await response.json();
+      console.log(data);
+      // todo object.entries
 
       const loadedTasks = [];
 
