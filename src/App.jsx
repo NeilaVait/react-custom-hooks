@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import UpCounter from './components/Counter/UpCounter';
 import DownCounter from './components/Counter/DownCounter';
 
