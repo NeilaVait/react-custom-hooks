@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { dbUrl } from './../config';
 
 const useHttp = (requestConfig, successCallback) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -10,9 +9,9 @@ const useHttp = (requestConfig, successCallback) => {
     setError(null);
     try {
       const response = await fetch(requestConfig.url, {
-        method: requestConfig.method,
-        body: JSON.stringify(requestConfig.body),
-        headers: requestConfig.headers,
+        method: requestConfig.method ? requestConfig.method : 'GET',
+        headers: requestConfig.headers || {},
+        body: requestConfig.body ? JSON.stringify({ text: taskText }) : null,
       });
 
       if (!response.ok) {
@@ -27,6 +26,11 @@ const useHttp = (requestConfig, successCallback) => {
       setError(err.message || 'Something went wrong!');
     }
     setIsLoading(false);
+  };
+  return {
+    isLoading,
+    error,
+    sendRequest,
   };
 };
 
