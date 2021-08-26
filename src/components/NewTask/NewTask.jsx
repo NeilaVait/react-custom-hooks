@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Section from '../UI/Section';
 import TaskForm from './TaskForm';
-import { dbUrl } from './../../../config';
+import { dbUrl } from '../../config';
 
 const NewTask = (props) => {
   const [isLoading, setIsLoading] = useState(false);
